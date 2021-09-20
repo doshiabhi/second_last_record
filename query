@@ -1,0 +1,9 @@
+******order rows in desc and take 2nd row**********
+
+select emp_ID, emp_NAME, DEPT_NAME, SALARY
+from (
+select *,
+row_number() over (order by emp_ID desc) as rows
+from employee) x
+where x.rows  = 2
+
